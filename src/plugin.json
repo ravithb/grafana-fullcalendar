@@ -1,0 +1,21 @@
+{
+    "type": "panel",
+    "name": "Full Calendar Panel",
+    "id": "kr-fullcalendar-panel",
+  
+    "info": {
+      "description": "A full calendar panel based on fullcalendar.io",
+      "author": {
+        "name": "Ravith Botejue",
+        "url": "https://github.com/ravithb"
+      },
+      "keywords": ["fullcalendar", "panel"],
+      "version": "1.0.0",
+      "updated": "2018-11-06"
+    },
+  
+    "dependencies": {
+      "grafanaVersion": "5.x.x",
+      "plugins": [ ]
+    }
+  }
