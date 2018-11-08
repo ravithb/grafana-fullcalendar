@@ -1,11 +1,16 @@
 "use strict";
 
-System.register([], function (_export, _context) {
+System.register(["./fullcalendar_ctrl"], function (_export, _context) {
   "use strict";
 
+  var FullCalendarCtrl;
   return {
-    setters: [],
-    execute: function () {}
+    setters: [function (_fullcalendar_ctrl) {
+      FullCalendarCtrl = _fullcalendar_ctrl.default;
+    }],
+    execute: function () {
+      _export("PanelCtrl", FullCalendarCtrl);
+    }
   };
 });
 //# sourceMappingURL=module.js.map

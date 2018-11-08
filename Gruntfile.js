@@ -26,6 +26,12 @@ module.exports = (grunt) => {
         src: ['img/**/*'],
         dest: 'dist/src/'
       },
+      deps: {
+        cwd: 'node_modules/fullcalendar/dist',
+        expand: true,
+        src: ['**/*.js','**/*.css'],
+        dest: 'dist'
+      },
       externals: {
         cwd: 'src',
         expand: true,
@@ -45,8 +51,8 @@ module.exports = (grunt) => {
     babel: {
       options: {
         sourceMap: true,
-        presets: ['babel-preset-env'],
-        plugins: ['transform-es2015-modules-systemjs', 'transform-es2015-for-of'],
+        presets: ['@babel/preset-env'],
+        plugins: ['transform-es2015-modules-systemjs','transform-es2015-for-of'],
       },
       dist: {
         files: [{
@@ -61,5 +67,5 @@ module.exports = (grunt) => {
 
   });
 
-  grunt.registerTask('default', ['clean', 'copy:src_to_dist', 'copy:pluginDef', 'copy:img_to_dist', 'copy:externals', 'babel']);
+  grunt.registerTask('default', ['clean', 'copy:src_to_dist', 'copy:pluginDef', 'copy:img_to_dist', 'copy:externals', 'copy:deps', 'babel']);
 };

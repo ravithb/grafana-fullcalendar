@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","sourcesContent":[],"file":"module.js"}
+{"version":3,"sources":["../src/module.js"],"names":["FullCalendarCtrl"],"mappings":";;;;;;;;AACOA,MAAAA,gB;;;2BAILA,gB","sourcesContent":["/* eslint import/no-extraneous-dependencies: 0 */\nimport FullCalendarCtrl from './fullcalendar_ctrl';\n\n/* eslint import/prefer-default-export: 0 */\nexport {\n  FullCalendarCtrl as PanelCtrl\n}"],"file":"module.js"}

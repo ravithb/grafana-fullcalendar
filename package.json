@@ -8,7 +8,7 @@
     "lint": "eslint --color .",
     "lint:watch": "onchange 'src/**/*.js' -- npm run lint",
     "build": "grunt",
-    "prebuild": "npm run clean",
+    "prebuild": "npm run lint && npm run clean",
     "build:watch": "onchange './src/**/*.js' './src/**/*.css' './src/**/*.html' './src/plugin.json' -- npm run build"
   },
   "keywords": [
@@ -21,10 +21,11 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^10.0.1",
+    "babel-plugin-transform-es2015-for-of": "^6.23.0",
     "babel-plugin-transform-es2015-modules-systemjs": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
     "eslint": "^5.8.0",
     "eslint-plugin-import": "^2.14.0",
     "grunt": "^1.0.3",
@@ -38,6 +39,8 @@
     "load-grunt-tasks": "^4.0.0"
   },
   "dependencies": {
+    "fullcalendar": "^3.9.0",
+    "jquery": "^3.3.1",
     "lodash": "^4.17.11",
     "moment": "^2.12.0"
   },

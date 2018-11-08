@@ -1,7 +1,7 @@
 {
     "type": "panel",
     "name": "Full Calendar Panel",
-    "id": "kr-fullcalendar-panel",
+    "id": "ravithb-fullcalendar-panel",
   
     "info": {
       "description": "A full calendar panel based on fullcalendar.io",
