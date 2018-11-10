@@ -1,16 +1,16 @@
 "use strict";
 
-System.register(["./fullcalendar_ctrl"], function (_export, _context) {
-  "use strict";
-
-  var FullCalendarCtrl;
-  return {
-    setters: [function (_fullcalendar_ctrl) {
-      FullCalendarCtrl = _fullcalendar_ctrl.default;
-    }],
-    execute: function () {
-      _export("PanelCtrl", FullCalendarCtrl);
-    }
-  };
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
+Object.defineProperty(exports, "PanelCtrl", {
+  enumerable: true,
+  get: function get() {
+    return _fullcalendar_ctrl.default;
+  }
+});
+
+var _fullcalendar_ctrl = _interopRequireDefault(require("./fullcalendar_ctrl"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 //# sourceMappingURL=module.js.map

@@ -51,14 +51,20 @@ module.exports = (grunt) => {
     babel: {
       options: {
         sourceMap: true,
-        presets: ['@babel/preset-env'],
-        plugins: ['transform-es2015-modules-systemjs','transform-es2015-for-of'],
+        presets: [
+          [
+            "@babel/preset-env",
+            {
+              "useBuiltIns": "entry"
+            }
+          ]
+        ],
       },
       dist: {
         files: [{
           cwd: 'src',
           expand: true,
-          src: ['*.js'],
+          src: ['**/*.js'],
           dest: 'dist',
           ext: '.js'
         }]

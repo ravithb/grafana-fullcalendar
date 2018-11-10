@@ -1,4 +1,10 @@
 {
-    "presets": ["@babel/preset-env"],
-    "plugins": ["transform-es2015-modules-systemjs"]
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "useBuiltIns": "entry"
+        }
+      ]
+    ]
 }
