@@ -1,7 +1,7 @@
 /* eslint import/no-extraneous-dependencies: 0 */
-import FullCalendarCtrl from './fullcalendar_ctrl';
+import CalendarCtrl from './calendar_ctrl';
 
 /* eslint import/prefer-default-export: 0 */
 export {
-  FullCalendarCtrl as PanelCtrl
+  CalendarCtrl as PanelCtrl
 }

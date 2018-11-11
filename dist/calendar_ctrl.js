@@ -7,11 +7,11 @@ exports.default = void 0;
 
 var _sdk = require("app/plugins/sdk");
 
-require("./css/tui-calendar.app.css!");
+var _cal_renderer = _interopRequireDefault(require("./cal_renderer"));
 
-var Calendar = _interopRequireWildcard(require("./libs/tui-calendar"));
+require("./css/calendar.css!");
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -31,17 +31,21 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-var FullCalendarCtrl =
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var CalendarCtrl =
 /*#__PURE__*/
 function (_MetricsPanelCtrl) {
-  _inherits(FullCalendarCtrl, _MetricsPanelCtrl);
+  _inherits(CalendarCtrl, _MetricsPanelCtrl);
 
-  function FullCalendarCtrl($scope, $injector, contextSrv) {
+  function CalendarCtrl($scope, $injector, contextSrv) {
     var _this;
 
-    _classCallCheck(this, FullCalendarCtrl);
+    _classCallCheck(this, CalendarCtrl);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(FullCalendarCtrl).call(this, $scope, $injector));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(CalendarCtrl).call(this, $scope, $injector));
+
+    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "calendar", void 0);
 
     _this.events.on('init-edit-mode', _this.onInitEditMode.bind(_assertThisInitialized(_assertThisInitialized(_this))));
 
@@ -51,10 +55,15 @@ function (_MetricsPanelCtrl) {
 
     _this.events.on('data-snapshot-load', _this.onDataSnapshotLoad.bind(_assertThisInitialized(_assertThisInitialized(_this))));
 
+    $scope.$watch('ctrl.panel.content', _.throttle(function () {
+      _this.render();
+
+      console.log('render_called_in_lodash');
+    }, 1000));
     return _this;
   }
 
-  _createClass(FullCalendarCtrl, [{
+  _createClass(CalendarCtrl, [{
     key: "onPanelTeardown",
     value: function onPanelTeardown() {}
   }, {
@@ -66,11 +75,19 @@ function (_MetricsPanelCtrl) {
   }, {
     key: "onDataSnapshotLoad",
     value: function onDataSnapshotLoad(snapshotData) {}
+    /* eslint class-methods-use-this: 0 */
+
+  }, {
+    key: "link",
+    value: function link(scope, elem, attrs, ctrl) {
+      console.log('*LINK Called');
+      (0, _cal_renderer.default)(scope, elem, attrs, ctrl);
+    }
   }]);
 
-  return FullCalendarCtrl;
+  return CalendarCtrl;
 }(_sdk.MetricsPanelCtrl);
 
-exports.default = FullCalendarCtrl;
-FullCalendarCtrl.templateUrl = 'module.html';
-//# sourceMappingURL=fullcalendar_ctrl.js.map
+exports.default = CalendarCtrl;
+CalendarCtrl.templateUrl = 'module.html';
+//# sourceMappingURL=calendar_ctrl.js.map

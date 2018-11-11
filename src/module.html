@@ -1,4 +1,19 @@
-<div>Hello module</div>
-<div style="width:800px; height: 400px;">
-<div id="calendar1"></div>
+<div>
+  <div class="btn-toolbar">
+
+    <button type="button" class="btn btn-default" ng-click="ctrl.calendar.previous()">&lt;</button>
+    <button type="button" class="btn btn-default" ng-click="ctrl.calendar.next()">&gt;</button>
+    <button type="button" class="btn btn-default" ng-click="ctrl.calendar.today()">Today</button>
+
+    <button type="button" class="btn btn-default" ng-click="ctrl.calendar.changeView('month')">Month</button>
+    <button type="button" class="btn btn-default" ng-click="ctrl.calendar.changeView('week')">Week</button>
+    <button type="button" class="btn btn-default" ng-click="ctrl.calendar.changeView('day')">Day</button>
+    <div id="range-container-{{ctrl.panel.id}}" class="range-container">
+
+    </div>
+  </div>
+
+</div>
+<div class="cal-wrapper">
+  <div id="cal-container-{{ctrl.panel.id}}" class="cal-container"></div>
 </div>

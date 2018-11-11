@@ -3,6 +3,7 @@ module.exports = (grunt) => {
 
   grunt.loadNpmTasks('grunt-execute');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.initConfig({
 
@@ -25,12 +26,6 @@ module.exports = (grunt) => {
         expand: true,
         src: ['img/**/*'],
         dest: 'dist/src/'
-      },
-      deps: {
-        cwd: 'node_modules/fullcalendar/dist',
-        expand: true,
-        src: ['**/*.js','**/*.css'],
-        dest: 'dist'
       },
       externals: {
         cwd: 'src',
@@ -59,6 +54,9 @@ module.exports = (grunt) => {
             }
           ]
         ],
+        plugins: [
+          "@babel/plugin-proposal-class-properties"
+        ]
       },
       dist: {
         files: [{
@@ -73,5 +71,5 @@ module.exports = (grunt) => {
 
   });
 
-  grunt.registerTask('default', ['clean', 'copy:src_to_dist', 'copy:pluginDef', 'copy:img_to_dist', 'copy:externals', 'copy:deps', 'babel']);
+  grunt.registerTask('default', ['clean', 'copy:src_to_dist', 'copy:pluginDef', 'copy:img_to_dist', 'copy:externals', 'babel']);
 };

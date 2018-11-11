@@ -1,21 +1,21 @@
 {
-    "type": "panel",
-    "name": "Full Calendar Panel",
-    "id": "ravithb-fullcalendar-panel",
-  
-    "info": {
-      "description": "A full calendar panel based on fullcalendar.io",
-      "author": {
-        "name": "Ravith Botejue",
-        "url": "https://github.com/ravithb"
-      },
-      "keywords": ["fullcalendar", "panel"],
-      "version": "1.0.0",
-      "updated": "2018-11-06"
+  "type": "panel",
+  "name": "Calendar Panel",
+  "id": "ravithb-tui-calendar-panel",
+
+  "info": {
+    "description": "A calendar panel based on tui-calendar",
+    "author": {
+      "name": "Ravith Botejue",
+      "url": "https://github.com/ravithb"
     },
-  
-    "dependencies": {
-      "grafanaVersion": "5.x.x",
-      "plugins": [ ]
-    }
+    "keywords": ["tui-calendar", "panel"],
+    "version": "1.0.0",
+    "updated": "2018-11-06"
+  },
+
+  "dependencies": {
+    "grafanaVersion": "5.x.x",
+    "plugins": [ ]
   }
+}
