@@ -60,15 +60,31 @@ function () {
   }
 
   _createClass(Calendar, [{
+    key: "setCalendarColor",
+    value: function setCalendarColor(cColor) {
+      if (cColor && cColor.color && cColor.bgColor && cColor.borderColor) {
+        console.log('settingColor %o,%o', this.ctrl.panel.calendarId, cColor);
+        this.tuiCalendar.setCalendarColor(this.ctrl.panel.calendarId, cColor, false);
+      }
+    }
+  }, {
+    key: "clear",
+    value: function clear() {
+      this.tuiCalendar.clear();
+    }
+  }, {
+    key: "destroy",
+    value: function destroy() {
+      this.tuiCalendar.destroy();
+    }
+  }, {
     key: "createSchedules",
     value: function createSchedules(schedules) {
-      console.log('createSchedules called');
       this.tuiCalendar.createSchedules(schedules);
     }
   }, {
     key: "changeView",
     value: function changeView(view) {
-      console.log('changeView called with %o', view);
       this.tuiCalendar.changeView(view, true);
       this.setRangeText();
     }

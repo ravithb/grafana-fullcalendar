@@ -1,7 +1,7 @@
 {
-  "name": "ravithb-fullcalendar-panel",
+  "name": "ravithb-tui-calendar-panel",
   "version": "1.0.0",
-  "description": "A full calendar panel based on fullcalendar.io",
+  "description": "A full calendar panel based on tui-calendar",
   "main": "src/module.js",
   "scripts": {
     "clean": "rm -r dist/*",

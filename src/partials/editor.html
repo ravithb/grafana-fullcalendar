@@ -1,0 +1,43 @@
+<div class="editor-row">
+  <div class="section gf-form-group">
+    <h5 class="section-heading">Calendar Options</h5>
+    <div class="gf-form">
+      <label class="gf-form-label width-10">Color</label>
+      <spectrum-picker class="gf-form-input width-3" ng-model="ctrl.panel.calendarColor.color" ng-change="ctrl.setCalendarColors()"></spectrum-picker>
+    </div>
+    <div class="gf-form">
+      <label class="gf-form-label width-10">Background Color</label>
+      <spectrum-picker class="gf-form-input width-3" ng-model="ctrl.panel.calendarColor.bgColor" ng-change="ctrl.setCalendarColors()"></spectrum-picker>
+    </div>
+    <div class="gf-form">
+      <label class="gf-form-label width-10">Border Color</label>
+      <spectrum-picker class="gf-form-input width-3" ng-model="ctrl.panel.calendarColor.borderColor" ng-change="ctrl.setCalendarColors()"></spectrum-picker>
+    </div>
+  </div>
+  <h5>SQL Result Column Mappings</h6>
+    <div class="gf-form">
+      <label class="gf-form-label width-12">Id Field</label>
+      <input type="text" class="input-small gf-form-input width-10" ng-model="ctrl.panel.columnMappings.idField"
+        ng-change="ctrl.refresh()" ng-model-onblur />
+    </div>
+    <div class="gf-form">
+      <label class="gf-form-label width-12">Title Field</label>
+      <input type="text" class="input-small gf-form-input width-10" ng-model="ctrl.panel.columnMappings.titleField"
+        ng-change="ctrl.refresh()" ng-model-onblur />
+    </div>
+    <div class="gf-form">
+      <label class="gf-form-label width-12">Start Date Field</label>
+      <input type="text" class="input-small gf-form-input width-10" ng-model="ctrl.panel.columnMappings.startField"
+        ng-change="ctrl.refresh()" ng-model-onblur />
+    </div>
+    <div class="gf-form">
+      <label class="gf-form-label width-12">End Date Field</label>
+      <input type="text" class="input-small gf-form-input width-10" ng-model="ctrl.panel.columnMappings.endField"
+        ng-change="ctrl.refresh()" ng-model-onblur />
+    </div>
+    <div class="gf-form">
+      <label class="gf-form-label width-12">All Day Field</label>
+      <input type="text" class="input-small gf-form-input width-10" ng-model="ctrl.panel.columnMappings.allDayField"
+        ng-change="ctrl.refresh()" ng-model-onblur />
+    </div>
+</div>

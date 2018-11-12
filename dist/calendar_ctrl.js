@@ -7,7 +7,13 @@ exports.default = void 0;
 
 var _sdk = require("app/plugins/sdk");
 
+var _time_series = _interopRequireDefault(require("app/core/time_series2"));
+
+var _kbn = _interopRequireDefault(require("app/core/utils/kbn"));
+
 var _cal_renderer = _interopRequireDefault(require("./cal_renderer"));
+
+var _data_formatter = _interopRequireDefault(require("./data_formatter"));
 
 require("./css/calendar.css!");
 
@@ -33,6 +39,23 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+var packageId = 'ravithb-tui-calendar-panel';
+var panelDefaults = {
+  calendarId: '1',
+  calendarColor: {
+    color: '#333333',
+    bgColor: '#1396FF',
+    borderColor: '#999999'
+  },
+  columnMappings: {
+    idField: 'id',
+    titleField: 'title',
+    startField: 'start',
+    endField: 'end',
+    allDayField: 'all_day'
+  }
+};
+
 var CalendarCtrl =
 /*#__PURE__*/
 function (_MetricsPanelCtrl) {
@@ -46,6 +69,10 @@ function (_MetricsPanelCtrl) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(CalendarCtrl).call(this, $scope, $injector));
 
     _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "calendar", void 0);
+
+    _.defaults(_this.panel, panelDefaults);
+
+    _this.dataFormatter = new _data_formatter.default(_assertThisInitialized(_assertThisInitialized(_this)), _kbn.default);
 
     _this.events.on('init-edit-mode', _this.onInitEditMode.bind(_assertThisInitialized(_assertThisInitialized(_this))));
 
@@ -65,16 +92,45 @@ function (_MetricsPanelCtrl) {
 
   _createClass(CalendarCtrl, [{
     key: "onPanelTeardown",
-    value: function onPanelTeardown() {}
+    value: function onPanelTeardown() {
+      if (this.calendar) {
+        this.calendar.destroy();
+      }
+    }
   }, {
     key: "onInitEditMode",
-    value: function onInitEditMode() {}
+    value: function onInitEditMode() {
+      this.addEditorTab('Calendar', 'public/plugins/' + packageId + '/partials/editor.html', 2);
+    }
   }, {
     key: "onDataReceived",
-    value: function onDataReceived(dataList) {}
+    value: function onDataReceived(dataList) {
+      if (!dataList || !dataList.length || dataList.length == 0) return;
+      var data = [];
+
+      if (dataList[0].type === 'table') {
+        var tableData = dataList.map(_data_formatter.default.tableHandler.bind(this));
+        this.dataFormatter.setTableValues(tableData, data);
+      }
+
+      this.data = data;
+      this.render();
+    }
   }, {
     key: "onDataSnapshotLoad",
-    value: function onDataSnapshotLoad(snapshotData) {}
+    value: function onDataSnapshotLoad(snapshotData) {
+      this.onDataReceived(snapshotData);
+    }
+  }, {
+    key: "setCalendarColors",
+    value: function setCalendarColors() {
+      if (!this.calendar) {
+        return;
+      }
+
+      this.calendar.setCalendarColor(this.panel.calendarColor);
+      this.refresh();
+    }
     /* eslint class-methods-use-this: 0 */
 
   }, {

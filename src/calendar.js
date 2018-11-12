@@ -36,13 +36,26 @@ export default class Calendar {
     });
   }
 
+  setCalendarColor(cColor) {
+    if(cColor && cColor.color && cColor.bgColor && cColor.borderColor){
+      console.log('settingColor %o,%o',this.ctrl.panel.calendarId,cColor);
+      this.tuiCalendar.setCalendarColor(this.ctrl.panel.calendarId, cColor,false);
+    }
+  }
+
+  clear(){
+    this.tuiCalendar.clear();
+  }
+
+  destroy(){
+    this.tuiCalendar.destroy();
+  }
+
   createSchedules(schedules){
-    console.log('createSchedules called');
     this.tuiCalendar.createSchedules(schedules);
   }
 
   changeView(view){
-    console.log('changeView called with %o',view);
     this.tuiCalendar.changeView(view,true);
     this.setRangeText();
   }
