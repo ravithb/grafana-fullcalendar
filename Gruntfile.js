@@ -7,7 +7,11 @@ module.exports = (grunt) => {
 
   grunt.initConfig({
 
-    clean: ['dist/**/*'],
+    clean: {
+      build: ['dist/**/*'],
+      tmp: ['ravithb-tui-calendar-panel'],
+      release: ['ravithb-tui-calendar-panel.zip']
+    },
 
     copy: {
       src_to_dist: {
@@ -32,7 +36,13 @@ module.exports = (grunt) => {
         expand: true,
         src: ['**/external/*'],
         dest: 'dist'
-      }
+      },
+      dist_to_tmp: {
+        cwd: 'dist/',
+        expand: true,
+        src: ['**/*'],
+        dest: 'ravithb-tui-calendar-panel'
+      },
     },
 
     watch: {
@@ -69,7 +79,12 @@ module.exports = (grunt) => {
       },
     },
 
+    zip: {
+      'ravithb-tui-calendar-panel.zip': ['ravithb-tui-calendar-panel/**/*']
+    }
+
   });
 
-  grunt.registerTask('default', ['clean', 'copy:src_to_dist', 'copy:pluginDef', 'copy:img_to_dist', 'copy:externals', 'babel']);
+  grunt.registerTask('default', ['clean:build', 'copy:src_to_dist', 'copy:pluginDef', 'copy:img_to_dist', 'copy:externals', 'babel', 'clean:release', 'clean:tmp', 'copy:dist_to_tmp', 'zip', 'clean:tmp']);
+
 };
