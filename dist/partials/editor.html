@@ -2,6 +2,11 @@
   <div class="section gf-form-group">
     <h5 class="section-heading">Calendar Options</h5>
     <div class="gf-form">
+        <label class="gf-form-label width-10">Calendar Id</label>
+        <input type="text" class="input-small gf-form-input width-10" ng-model="ctrl.panel.columnMappings.idField"
+        ng-change="ctrl.refresh()" ng-model-onblur />
+      </div>
+    <div class="gf-form">
       <label class="gf-form-label width-10">Color</label>
       <spectrum-picker class="gf-form-input width-3" ng-model="ctrl.panel.calendarColor.color" ng-change="ctrl.setCalendarColors()"></spectrum-picker>
     </div>
