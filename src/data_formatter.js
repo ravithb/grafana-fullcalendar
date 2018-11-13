@@ -36,11 +36,12 @@ export default class DataFormatter {
     if (tableData && tableData.length > 0) {
 
       tableData[0].forEach((datapoint) => {
-        data.push({
+	data.push({
           id: datapoint[this.ctrl.panel.columnMappings.idField],
           calendarId: this.ctrl.panel.calendarId,
           title: datapoint[this.ctrl.panel.columnMappings.titleField],
-          category: 'time',
+          category: datapoint[this.ctrl.panel.columnMappings.categoryField] || 'time',
+          raw: datapoint[this.ctrl.panel.columnMappings.dataField] || '',
           dueDateClass: '',
           start: moment(datapoint[this.ctrl.panel.columnMappings.startField]).toDate(),
           end: moment(datapoint[this.ctrl.panel.columnMappings.endField]).toDate(),

@@ -20,7 +20,9 @@ const panelDefaults = {
     titleField: 'title',
     startField: 'start',
     endField: 'end',
-    allDayField: 'all_day'
+    allDayField: 'all_day',
+    dataField: 'url',
+    categoryField: 'category'
   }
 }
 
@@ -42,7 +44,6 @@ export default class CalendarCtrl extends MetricsPanelCtrl {
       'ctrl.panel.content',
       _.throttle(() => {
         this.render();
-        console.log('render_called_in_lodash');
       }, 1000)
     );
   }
@@ -87,7 +88,6 @@ export default class CalendarCtrl extends MetricsPanelCtrl {
 
   /* eslint class-methods-use-this: 0 */
   link(scope, elem, attrs, ctrl) {
-    console.log('*LINK Called');
     calRenderer(scope, elem, attrs, ctrl);
   }
 

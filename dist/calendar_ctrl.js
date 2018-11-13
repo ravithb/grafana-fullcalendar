@@ -52,7 +52,9 @@ var panelDefaults = {
     titleField: 'title',
     startField: 'start',
     endField: 'end',
-    allDayField: 'all_day'
+    allDayField: 'all_day',
+    dataField: 'url',
+    categoryField: 'category'
   }
 };
 
@@ -84,8 +86,6 @@ function (_MetricsPanelCtrl) {
 
     $scope.$watch('ctrl.panel.content', _.throttle(function () {
       _this.render();
-
-      console.log('render_called_in_lodash');
     }, 1000));
     return _this;
   }
@@ -136,7 +136,6 @@ function (_MetricsPanelCtrl) {
   }, {
     key: "link",
     value: function link(scope, elem, attrs, ctrl) {
-      console.log('*LINK Called');
       (0, _cal_renderer.default)(scope, elem, attrs, ctrl);
     }
   }]);

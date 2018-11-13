@@ -54,6 +54,9 @@ function () {
         },
         time: function time(schedule) {
           return self.getTimeTemplate(schedule, false);
+        },
+        task: function task(schedule) {
+          return '<a href="' + schedule.raw + '">' + schedule.title + '</a>';
         }
       }
     });
@@ -63,7 +66,6 @@ function () {
     key: "setCalendarColor",
     value: function setCalendarColor(cColor) {
       if (cColor && cColor.color && cColor.bgColor && cColor.borderColor) {
-        console.log('settingColor %o,%o', this.ctrl.panel.calendarId, cColor);
         this.tuiCalendar.setCalendarColor(this.ctrl.panel.calendarId, cColor, false);
       }
     }

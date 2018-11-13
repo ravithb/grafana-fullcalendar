@@ -41,6 +41,16 @@
         ng-change="ctrl.refresh()" ng-model-onblur />
     </div>
     <div class="gf-form">
+      <label class="gf-form-label width-12">Category Field (valid values are : milestone, task, allday,time)</label>
+      <input type="text" class="input-small gf-form-input width-10" ng-model="ctrl.panel.columnMappings.categoryField"
+        ng-change="ctrl.refresh()" ng-model-onblur />
+    </div>
+    <div class="gf-form">
+      <label class="gf-form-label width-12">Data Field</label>
+      <input type="text" class="input-small gf-form-input width-10" ng-model="ctrl.panel.columnMappings.dataField"
+        ng-change="ctrl.refresh()" ng-model-onblur />
+    </div>
+    <div class="gf-form">
       <label class="gf-form-label width-12">All Day Field</label>
       <input type="text" class="input-small gf-form-input width-10" ng-model="ctrl.panel.columnMappings.allDayField"
         ng-change="ctrl.refresh()" ng-model-onblur />

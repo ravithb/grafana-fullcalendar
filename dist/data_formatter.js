@@ -36,16 +36,19 @@ function () {
 
       if (tableData && tableData.length > 0) {
         tableData[0].forEach(function (datapoint) {
-          data.push({
+          var tmp = {
             id: datapoint[_this.ctrl.panel.columnMappings.idField],
             calendarId: _this.ctrl.panel.calendarId,
             title: datapoint[_this.ctrl.panel.columnMappings.titleField],
-            category: 'time',
+            category: datapoint[_this.ctrl.panel.columnMappings.categoryField] || 'time',
+            raw: datapoint[_this.ctrl.panel.columnMappings.dataField] || '',
             dueDateClass: '',
             start: moment(datapoint[_this.ctrl.panel.columnMappings.startField]).toDate(),
             end: moment(datapoint[_this.ctrl.panel.columnMappings.endField]).toDate(),
             isAllDay: datapoint[_this.ctrl.panel.columnMappings.allDayField] !== undefined ? datapoint[_this.ctrl.panel.columnMappings.allDayField] : false
-          });
+          };
+          console.log('tmp = %o', tmp);
+          data.push(tmp);
         });
       }
     }

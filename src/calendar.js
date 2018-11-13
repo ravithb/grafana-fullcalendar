@@ -30,6 +30,9 @@ export default class Calendar {
         },
         time: function(schedule) {
           return self.getTimeTemplate(schedule, false);
+        },
+        task: function(schedule) {
+          return '<a href="'+schedule.raw+'">'+schedule.title+'</a>';
         }
 
       }
@@ -38,7 +41,6 @@ export default class Calendar {
 
   setCalendarColor(cColor) {
     if(cColor && cColor.color && cColor.bgColor && cColor.borderColor){
-      console.log('settingColor %o,%o',this.ctrl.panel.calendarId,cColor);
       this.tuiCalendar.setCalendarColor(this.ctrl.panel.calendarId, cColor,false);
     }
   }
