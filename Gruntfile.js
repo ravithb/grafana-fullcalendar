@@ -9,6 +9,7 @@ module.exports = (grunt) => {
 
     clean: {
       build: ['dist/**/*'],
+      tmp: ['ravithb-tui-calendar-panel*'],
       release: ['ravithb-tui-calendar-panel.zip']
     },
 
@@ -28,13 +29,19 @@ module.exports = (grunt) => {
         cwd: 'src',
         expand: true,
         src: ['img/**/*'],
-        dest: 'dist/src/'
+        dest: 'dist/'
       },
       externals: {
         cwd: 'src',
         expand: true,
         src: ['**/external/*'],
         dest: 'dist'
+      },
+      dist_to_tmp: {
+        cwd: './',
+        expand: true,
+        src: ['**/*','!**/node_modules/**','!**/kaushyr-tui-calendar-panel.zip'],
+        dest: 'kaushyr-tui-calendar-panel'
       },
     },
 
@@ -72,12 +79,9 @@ module.exports = (grunt) => {
       },
     },
 
-    zip: {
-      'ravithb-tui-calendar-panel.zip': ['./**/*']
-    }
 
   });
 
-  grunt.registerTask('default', ['clean:build', 'copy:src_to_dist', 'copy:pluginDef', 'copy:img_to_dist', 'copy:externals', 'babel', 'clean:release', 'zip']);
+  grunt.registerTask('default', ['clean:build', 'clean:tmp', 'clean:release', 'copy:src_to_dist', 'copy:pluginDef', 'copy:img_to_dist', 'copy:externals', 'babel', 'clean:release', 'copy:dist_to_tmp', 'clean:tmp']);
 
 };

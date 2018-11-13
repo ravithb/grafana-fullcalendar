@@ -10,8 +10,19 @@
       "url": "https://github.com/ravithb"
     },
     "keywords": ["tui-calendar", "panel"],
+    "links": [
+      {"name": "Project Site", "url": "https://github.com/ravithb/grafana-fullcalendar"}
+    ],
+    "screenshots": [
+      {"name": "Calendar", "path": "img/calendar_view.png"},
+      {"name": "Calendar Options", "path": "img/calendar_options.png"}
+    ],
     "version": "1.0.0",
-    "updated": "2018-11-06"
+    "updated": "2018-11-06",
+    "logos": {
+      "small": "img/logo.svg",
+      "large": "img/logo.svg"
+    }
   },
 
   "dependencies": {

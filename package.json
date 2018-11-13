@@ -1,14 +1,14 @@
 {
   "name": "ravithb-tui-calendar-panel",
   "version": "1.0.0",
-  "description": "A full calendar panel based on tui-calendar",
+  "description": "A calendar panel based on tui-calendar",
   "main": "src/module.js",
   "scripts": {
-    "clean": "rm -r dist/*",
+    "clean": "grunt clean",
     "lint": "eslint --color .",
     "lint:watch": "onchange 'src/**/*.js' -- npm run lint",
     "build": "grunt",
-    "prebuild": "npm run lint && npm run clean",
+    "prebuild": "grunt clean && npm run lint",
     "build:watch": "onchange './src/**/*.js' './src/**/*.css' './src/**/*.html' './src/plugin.json' -- npm run build"
   },
   "keywords": [
