@@ -40,8 +40,8 @@ module.exports = (grunt) => {
       dist_to_tmp: {
         cwd: './',
         expand: true,
-        src: ['**/*','!**/node_modules/**','!**/kaushyr-tui-calendar-panel.zip'],
-        dest: 'kaushyr-tui-calendar-panel'
+        src: ['**/*','!**/node_modules/**','!**/ravithb-tui-calendar-panel-*.zip'],
+        dest: 'ravithb-tui-calendar-panel'
       },
     },
 

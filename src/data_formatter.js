@@ -36,7 +36,7 @@ export default class DataFormatter {
     if (tableData && tableData.length > 0) {
 
       tableData[0].forEach((datapoint) => {
-	data.push({
+        data.push({
           id: datapoint[this.ctrl.panel.columnMappings.idField],
           calendarId: this.ctrl.panel.calendarId,
           title: datapoint[this.ctrl.panel.columnMappings.titleField],
