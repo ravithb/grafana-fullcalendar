@@ -11,12 +11,12 @@ div.nav-buttons-left {
 div.cal-wrapper {
   margin-top: 1rem;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 50px);
 }
 
 .cal-container {
   width: inherit;
-  height: inherit;
+  height: 100%;
 }
 
 .range-container{
